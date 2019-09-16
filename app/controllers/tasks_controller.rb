@@ -15,10 +15,10 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     
     if @task.save
-      flash[:success] = 'Task は正常に入力されました'
+      flash[:success] = 'Task が正常に入力されました'
       redirect_to @task
     else
-      flash.now[:danger] = 'Task は入力されませんでした'
+      flash.now[:danger] = 'Task が入力されませんでした'
       render :new
     end
   end
@@ -49,8 +49,8 @@ class TasksController < ApplicationController
   
   private
   
-  def message_params
-    params_require(:task).permit(:content)
+  def task_params
+    params.require(:task).permit(:content)
   end
   
 end
