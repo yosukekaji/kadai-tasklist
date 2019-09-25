@@ -15,6 +15,7 @@ class TasksController < ApplicationController
   
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
     
     if @task.save
       flash[:success] = 'Task が正常に入力されました'
