@@ -3,6 +3,9 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    # @tasks = Task.where(user_id: current_user.id)
+    # Userクラスにhas_many :tasksと書くことで使用可能になる
+    @tasks = current_user.tasks
   end
   
   def show

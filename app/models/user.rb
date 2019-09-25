@@ -6,5 +6,10 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   
+  # 実際にはUserクラスに、tasksというインスタンスメソッドを追加している
+  # def tasks
+  #   Task.where(user_id: self.id)
+  # end
+  # とほぼやっていることは同じ
   has_many :tasks
 end
